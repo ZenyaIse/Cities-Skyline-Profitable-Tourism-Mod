@@ -1,8 +1,8 @@
 ## Cities-Skyline-Profitable-Tourism-Mod
 
-This mod increases income from tourism.
+This mod helps you earn more from tourism.
 
-By default, the tourism income is increased in 10 times. Can be changed in options.
+By default, the tourism income is increased in 10 times. The value can be changed in the game options.
 
 **Question 1.** Why increase tourism income?
 Because tourism is highly unprofitable in vanilla. There are a lot of complaints on the web about this subject.
