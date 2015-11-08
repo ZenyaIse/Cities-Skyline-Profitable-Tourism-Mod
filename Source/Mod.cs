@@ -1,10 +1,4 @@
-using System.IO;
 using ICities;
-using ColossalFramework;
-using ColossalFramework.UI;
-using ColossalFramework.Globalization;
-using UnityEngine;
-using ColossalFramework.Plugins;
 
 namespace ProfitableTourismMod
 {
@@ -23,39 +17,33 @@ namespace ProfitableTourismMod
 
         #region Options UI
         
-        public static string OptionFileName = "ProfitableTourism.txt";
-
         public void OnSettingsUI(UIHelperBase helper)
         {
-            int index = 3;
-            
-            try
-            {
-                if (File.Exists(OptionFileName))
-                {
-                    string strValue = File.ReadAllText(OptionFileName);
-                    int intValue = Int32.Parse(strValue);
-                    index = Array.IndexOf(TourismIncomeMultipliers, intValue);
-                }
-            }
-            catch (Exception ex)
-            {
-                DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, "ProfitableTourismMod: " + ex.Message);
-            }
+            helper.AddDropdown(
+                "Tourism income",
+                PTM_Options.TourismIncomeMultipliersStr,
+                PTM_Options.Instance.GetTourismIncomeMultiplierIndex(),
+                TourismIncomeMultiplierOnSelected
+                );
 
             helper.AddDropdown(
-                "Tourism income multiplier",
-                Economy.TourismIncomeMultipliersStr,
-                index,
-                TourismIncomeMultiplierOnSelected
+                "Taxi income",
+                PTM_Options.TaxiIncomeMultipliersStr,
+                PTM_Options.Instance.GetTaxiIncomeMultiplierIndex(),
+                TaxiIncomeMultiplierOnSelected
                 );
         }
 
         private void TourismIncomeMultiplierOnSelected(int sel)
         {
-            Economy.TourismIncomeMultiplier = Economy.TourismIncomeMultipliers[sel];
-            
-            File.WriteAllText(OptionFileName, Economy.TourismIncomeMultiplier.ToString());
+            PTM_Options.Instance.TourismIncomeMultiplier = PTM_Options.TourismIncomeMultipliers[sel];
+            PTM_Options.Instance.Save();
+        }
+
+        private void TaxiIncomeMultiplierOnSelected(int sel)
+        {
+            PTM_Options.Instance.TaxiIncomeMultiplier = PTM_Options.TaxiIncomeMultipliers[sel];
+            PTM_Options.Instance.Save();
         }
 
         #endregion
