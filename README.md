@@ -2,8 +2,8 @@
 
 This mod helps you earn more from tourism.
 
-The tourism income is increased in 10 times. Can be set from x2 to x100 in the game options.
-The value 10 was choosen so that the income from tourism was roughly the same as the unique buildings upkeep.
+The tourism income is increased in 5 times. Can be set from x2 to x20 in the game options.
+The value 5 was choosen so that the income from tourism was roughly the same as the unique buildings upkeep.
 
 And, as a bonus feature, the taxi income is doubled.  
 Can be set from x1 (no change) to x10 in the game options.

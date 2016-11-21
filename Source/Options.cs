@@ -23,8 +23,8 @@ namespace ProfitableTourismMod
             }
         }
 
-        public static int[] TourismIncomeMultipliers = new int[] { 2, 3, 5, 10, 20, 30, 50, 100 };
-        public static string[] TourismIncomeMultipliersStr = new string[] { "x2", "x3", "x5", "x10", "x20", "x30", "x50", "x100" };
+        public static int[] TourismIncomeMultipliers = new int[] { 2, 3, 4, 5, 7, 10, 15, 20 };
+        public static string[] TourismIncomeMultipliersStr = new string[] { "x2", "x3", "x4", "x5", "x7", "x10", "x15", "x20" };
         public int TourismIncomeMultiplier;
 
         public static int[] TaxiIncomeMultipliers = new int[] { 1, 2, 3, 5, 10 };
@@ -33,7 +33,7 @@ namespace ProfitableTourismMod
 
         public PTM_Options()
         {
-            TourismIncomeMultiplier = 10;
+            TourismIncomeMultiplier = 5;
             TaxiIncomeMultiplier = 2;
         }
 
@@ -41,7 +41,7 @@ namespace ProfitableTourismMod
         {
             int index = Array.IndexOf(TourismIncomeMultipliers, TourismIncomeMultiplier);
 
-            if (index == -1) return Array.IndexOf(TourismIncomeMultipliers, 10);
+            if (index == -1) return Array.IndexOf(TourismIncomeMultipliers, 5);
 
             return index;
         }
